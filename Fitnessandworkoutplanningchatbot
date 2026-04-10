@@ -1,11 +1,11 @@
 import google.generativeai as genai
+import streamlit as st
 genai.configure("API KEY")
 model=genai.GenerativeModel("gemini-2.5-flash")
-prompt=input("enter the question")
+prompt=st.text_input("enter the question")
 uh = "You are Fitness and Workout planning chatbot ,answer only for  questions related to Fitness and Workout planning  ."
 response = model.generate_content(prompt+uh)
-print(response.text)
-
+st.write(response.text)
 
 
 
